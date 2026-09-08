@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Eco-Clics: construye tu imperio de energía limpia.">
+	<title>Eco-Clics: Imperio de Energía Limpia</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="page-shell">
+		<main class="game-layout">
+			<section class="generator-panel" aria-labelledby="dashboard-title">
+				<div class="control-brand">
+					<div class="brand-lockup">
+						<div class="brand-mark" aria-hidden="true">✦</div>
+						<div>
+							<p class="eyebrow">Energía para el mañana</p>
+							<h1>Eco-Clics</h1>
+						</div>
+					</div>
+					<div class="status-pill"><span class="status-dot"></span> Red limpia activa</div>
+				</div>
+				<div class="section-heading">
+					<div>
+						<p class="eyebrow">Centro de control</p>
+						<h2 id="dashboard-title">Tu red energética</h2>
+					</div>
+					<span class="live-label"><span></span> En directo</span>
+				</div>
+
+				<div class="metrics" aria-label="Estadísticas de energía">
+					<div class="metric-card metric-primary">
+						<span class="metric-label">Energía Total <b>(W)</b></span>
+						<strong id="energy-total">0</strong>
+						<span class="metric-note">acumulada</span>
+					</div>
+					<div class="metric-card">
+						<span class="metric-label">Energía por Segundo <b>(Wps)</b></span>
+						<strong id="energy-rate">0</strong>
+						<span class="metric-note">producción constante</span>
+					</div>
+				</div>
+				<div class="carbon-card" id="carbon-card">
+					<div class="carbon-heading">
+						<div>
+							<span class="metric-label">Objetivo planetario</span>
+							<strong>Huella de Carbono Mundial</strong>
+						</div>
+						<b id="carbon-value">100%</b>
+					</div>
+					<div class="carbon-track" role="progressbar" aria-label="Huella de Carbono Mundial" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+						<span id="carbon-progress-fill"></span>
+					</div>
+					<p>Reduce la huella hasta convertir la red en un futuro limpio.</p>
+				</div>
+
+				<div class="generator-stage">
+					<div class="orbit orbit-one"></div>
+					<div class="orbit orbit-two"></div>
+					<button class="solar-button" id="generate-button" type="button" aria-label="Generar energía">
+						<span class="solar-icon" aria-hidden="true">☼</span>
+						<span>Generar<br>energía</span>
+						<small>+1 W</small>
+					</button>
+					<p class="click-hint">Cada clic impulsa el cambio</p>
+				</div>
+			</section>
+
+			<aside class="shop-panel" aria-labelledby="shop-title">
+				<div class="section-heading shop-heading">
+					<div>
+						<p class="eyebrow">Escala tu impacto</p>
+						<h2 id="shop-title">Tienda de Tecnología</h2>
+					</div>
+					<span class="shop-count" id="owned-total">0</span>
+				</div>
+				<div class="shop-list">
+					<article class="upgrade-card" data-id="wind">
+						<div class="upgrade-icon wind-icon" aria-hidden="true">≋</div>
+						<div class="upgrade-info">
+							<h3>Mini Turbina Eólica</h3>
+							<p><span class="cost" data-cost>50 W</span><span class="separator">·</span> Produce: <b>1 Wps</b></p>
+							<div class="upgrade-footer"><span>Posees: <b data-owned>0</b></span><button class="buy-button" type="button">Comprar</button></div>
+						</div>
+					</article>
+					<article class="upgrade-card" data-id="solar">
+						<div class="upgrade-icon solar-icon-small" aria-hidden="true">☼</div>
+						<div class="upgrade-info">
+							<h3>Granja Solar</h3>
+							<p><span class="cost" data-cost>400 W</span><span class="separator">·</span> Produce: <b>10 Wps</b></p>
+							<div class="upgrade-footer"><span>Posees: <b data-owned>0</b></span><button class="buy-button" type="button">Comprar</button></div>
+						</div>
+					</article>
+					<article class="upgrade-card" data-id="hydro">
+						<div class="upgrade-icon hydro-icon" aria-hidden="true">⌁</div>
+						<div class="upgrade-info">
+							<h3>Central Hidroeléctrica</h3>
+							<p><span class="cost" data-cost>3000 W</span><span class="separator">·</span> Produce: <b>80 Wps</b></p>
+							<div class="upgrade-footer"><span>Posees: <b data-owned>0</b></span><button class="buy-button" type="button">Comprar</button></div>
+						</div>
+					</article>
+				</div>
+				<p class="shop-tip">La inversión de hoy es el aire limpio de mañana.</p>
+			</aside>
+
+			<section class="innovation-panel" aria-label="Innovación y progreso">
+				<section class="research-section" aria-labelledby="research-title">
+					<div class="research-heading">
+						<p class="eyebrow">Laboratorio de innovación</p>
+						<h2 id="research-title">Mejoras de Eficiencia</h2>
+					</div>
+					<article class="research-card" id="grafeno-card">
+						<div class="research-icon" aria-hidden="true">◇</div>
+						<div class="upgrade-info">
+							<h3>Superconductores de Grafeno</h3>
+							<p>Duplica el poder de tus clics manuales</p>
+							<div class="upgrade-footer">
+								<span class="research-cost">Costo: <b>200 W</b></span>
+								<button class="buy-button research-button" id="buy-grafeno" type="button">Investigar</button>
+							</div>
+						</div>
+					</article>
+				</section>
+				<section class="projects-section" aria-labelledby="projects-title">
+					<div class="projects-heading">
+						<div>
+							<p class="eyebrow">Misión crítica</p>
+							<h2 id="projects-title">Grandes Proyectos de Salvación</h2>
+						</div>
+						<span class="project-badge">META GLOBAL</span>
+					</div>
+					<div class="project-list">
+						<article class="mega-project-card" data-project="coal">
+							<div class="project-icon" aria-hidden="true">◒</div>
+							<div class="upgrade-info">
+								<h3>Cerrar todas las centrales de carbón</h3>
+								<p><span class="project-cost">100.000 W</span><span class="separator">·</span> Reduce un <b>25%</b> la Huella de Carbono</p>
+								<button class="project-button" id="buy-coal" type="button">Activar proyecto</button>
+							</div>
+						</article>
+						<article class="mega-project-card" data-project="amazon">
+							<div class="project-icon" aria-hidden="true">♧</div>
+							<div class="upgrade-info">
+								<h3>Reforestación del Amazonas</h3>
+								<p><span class="project-cost">500.000 W</span><span class="separator">·</span> Reduce un <b>50%</b> la Huella de Carbono</p>
+								<button class="project-button" id="buy-amazon" type="button">Activar proyecto</button>
+							</div>
+						</article>
+						<article class="mega-project-card" data-project="renewable">
+							<div class="project-icon" aria-hidden="true">✦</div>
+							<div class="upgrade-info">
+								<h3>Matriz Energética 100% Renovable</h3>
+								<p><span class="project-cost">2.000.000 W</span><span class="separator">·</span> Reduce el último <b>25%</b> de la Huella</p>
+								<button class="project-button" id="buy-renewable" type="button">Activar proyecto</button>
+							</div>
+						</article>
+					</div>
+				</section>
+				<section class="prestige-section" aria-labelledby="prestige-title">
+					<div class="prestige-copy">
+						<p class="eyebrow">El siguiente horizonte</p>
+						<h2 id="prestige-title">Reiniciar Imperio</h2>
+						<p>Reinicia tu red para obtener un multiplicador permanente de producción y clics.</p>
+					</div>
+					<div class="prestige-controls">
+						<div class="prestige-level">Nivel <strong id="prestige-level">0</strong><span id="prestige-multiplier">+0%</span></div>
+						<p id="prestige-progress">Requiere 50.000 W acumulados</p>
+						<button class="prestige-button" id="prestige-button" type="button">Activar Red Global (Prestigio)</button>
+					</div>
+				</section>
+			</section>
+		</main>
+	</div>
+	<div id="floating-layer"></div>
+	<div class="toast" id="toast" role="status" aria-live="polite"></div>
+	<div id="notificacion-logro" role="status" aria-live="polite" aria-atomic="true">
+		<strong>Logro desbloqueado</strong>
+		<span id="texto-logro"></span>
+	</div>
+	<div class="victory-overlay" id="victory-overlay" role="dialog" aria-modal="true" aria-labelledby="victory-title">
+		<div class="victory-modal">
+			<div class="victory-spark" aria-hidden="true">✦</div>
+			<p class="eyebrow">Misión cumplida</p>
+			<h2 id="victory-title">¡Has salvado el planeta!</h2>
+			<p>La Tierra ahora es 100% limpia gracias a tu imperio energético.</p>
+			<button class="free-mode-button" id="continue-free" type="button">Seguir jugando en modo libre</button>
+		</div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>

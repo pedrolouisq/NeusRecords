@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gestiona y controla tus pagos mensuales en un solo lugar.">
+  <title>MonthlyPay | Gestor de Pagos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">M</span>
+        <span>MonthlyPay</span>
+      </div>
+      <div class="sidebar-copy">
+        <p class="eyebrow">Tu centro financiero</p>
+        <h2>Ordena tus pagos.<br><em>Respira tranquilo.</em></h2>
+      </div>
+      <div class="sidebar-footer">
+        <div class="status-dot"></div>
+        <span>Datos guardados localmente</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Resumen mensual</p>
+          <h1>Mis pagos</h1>
+        </div>
+        <div class="month-picker-group">
+          <label for="monthSelect">Periodo activo</label>
+          <div class="month-picker">
+            <span class="calendar-icon" aria-hidden="true">&#128197;</span>
+            <select id="monthSelect" aria-label="Seleccionar mes"></select>
+            <select id="yearSelect" aria-label="Seleccionar año"></select>
+          </div>
+        </div>
+      </header>
+
+      <section class="overview-grid" aria-label="Resumen del mes">
+        <article class="total-card">
+          <div class="card-heading">
+            <span class="icon-bubble blue">&#128176;</span>
+            <span>Total a pagar</span>
+            <span class="live-badge"><i></i> En vivo</span>
+          </div>
+          <strong id="totalAmount">$0,00</strong>
+          <p id="totalCaption">Aun no hay pagos registrados</p>
+          <div class="total-accent"></div>
+        </article>
+        <article class="stat-card">
+          <div class="card-heading"><span class="icon-bubble lavender">&#128203;</span><span>Pagos registrados</span></div>
+          <strong id="paymentCount">0</strong>
+          <p>en el periodo seleccionado</p>
+        </article>
+        <article class="stat-card">
+          <div class="card-heading"><span class="icon-bubble mint">&#10003;</span><span>Estado</span></div>
+          <strong class="status-text">Al d&iacute;a</strong>
+          <p>Tu control est&aacute; actualizado</p>
+        </article>
+      </section>
+
+      <section class="workspace-grid">
+        <article class="panel form-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Nuevo registro</p>
+              <h2 id="formTitle">Agregar pago</h2>
+            </div>
+            <span class="plus-mark">+</span>
+          </div>
+          <form id="paymentForm" novalidate>
+            <input type="hidden" id="editingId">
+            <div class="field-group">
+              <label for="paymentDate">Fecha del pago</label>
+              <input id="paymentDate" type="date" required>
+            </div>
+            <div class="field-group">
+              <label for="paymentConcept">Concepto / Nombre</label>
+              <input id="paymentConcept" type="text" placeholder="Ej. Internet, arriendo..." maxlength="80" required>
+            </div>
+            <div class="field-group">
+              <label for="paymentAmount">Monto a pagar</label>
+              <div class="amount-input"><span>$</span><input id="paymentAmount" type="number" min="0" step="0.01" placeholder="0.00" required></div>
+            </div>
+            <p class="form-error" id="formError" role="alert"></p>
+            <div class="form-actions">
+              <button class="primary-button" type="submit" id="submitButton"><span>+</span> Agregar pago</button>
+              <button class="text-button hidden" type="button" id="cancelEdit">Cancelar</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="panel list-panel">
+          <div class="panel-header list-header">
+            <div>
+              <p class="eyebrow">Actividad del periodo</p>
+              <h2>Pagos de <span id="activeMonthLabel">este mes</span></h2>
+            </div>
+            <button class="export-button" id="exportButton" type="button" title="Descargar CSV del mes"><span aria-hidden="true">&#8595;</span> Descargar CSV</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Fecha</th><th>Concepto</th><th>Monto</th><th class="actions-heading">Acciones</th></tr></thead>
+              <tbody id="paymentsBody"></tbody>
+            </table>
+            <div class="empty-state" id="emptyState">
+              <div class="empty-icon">&#9744;</div>
+              <h3>Tu lista est&aacute; despejada</h3>
+              <p>A&ntilde;ade tu primer pago del mes para empezar a organizarte.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+      <footer class="page-footer">MonthlyPay <span>&bull;</span> Tu informaci&oacute;n permanece en este dispositivo</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

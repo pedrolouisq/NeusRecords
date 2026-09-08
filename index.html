@@ -253,5 +253,13 @@
     </footer>
 
     <script src="js/scripts.js"></script>
+    <script>
+        document.addEventListener("keydown", function (event) {
+            if (event.altKey && event.key.toLowerCase() === "p") {
+                event.preventDefault();
+                window.location.href = "./portafolio/";
+            }
+        });
+    </script>
 </body>
 </html>
