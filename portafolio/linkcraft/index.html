@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="LinkCraft, creador de Bio-Links personalizado.">
+	<title>LinkCraft | Creador de Bio-Links</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="app-shell">
+		<header class="topbar">
+			<div>
+				<p class="eyebrow">Neus Lab / Creator Studio</p>
+				<h1>LinkCraft</h1>
+				<p class="subtitle">Diseñador de Bio-Links Personalizado</p>
+			</div>
+			<div class="topbar-actions">
+				<a class="button" href="../index.html">← Volver al Portafolio</a>
+				<button class="button button-primary" id="saveButton" type="button">⧉ Copiar Mi Bio Link / Guardar</button>
+			</div>
+		</header>
+
+		<main class="dashboard">
+			<section class="editor-panel" aria-label="Editor de Bio-Link">
+				<section class="panel-card">
+					<div class="panel-heading">
+						<div>
+							<h2>Perfil</h2>
+							<p>La información que verán tus visitantes.</p>
+						</div>
+					</div>
+					<div class="form-grid">
+						<div class="field"><label for="profileName">Nombre de usuario</label><input id="profileName" type="text" placeholder="Pedro Louis"></div>
+						<div class="field"><label for="profileAvatar">URL de imagen de perfil</label><input id="profileAvatar" type="url" placeholder="https://..."></div>
+						<div class="field field-full"><label for="profileBio">Biografía corta</label><textarea id="profileBio" maxlength="160" placeholder="Creador, músico y constructor de ideas digitales."></textarea></div>
+					</div>
+				</section>
+
+				<section class="panel-card">
+					<div class="panel-heading">
+						<div>
+							<h2>Mis enlaces</h2>
+							<p>Agrega destinos y ordénalos como quieras.</p>
+						</div>
+					</div>
+					<div class="link-form">
+						<div class="field"><label for="linkTitle">Título del enlace</label><input id="linkTitle" type="text" placeholder="Mi nuevo single"></div>
+						<div class="field"><label for="linkUrl">URL</label><input id="linkUrl" type="url" placeholder="https://ejemplo.com"></div>
+						<div class="field"><label for="linkIcon">Ícono / Red Social</label><select id="linkIcon"><option value="spotify">Spotify</option><option value="instagram">Instagram</option><option value="youtube">YouTube</option><option value="github">GitHub</option><option value="web">Web</option><option value="twitter">Twitter</option></select></div>
+						<button class="button button-primary" id="addLinkButton" type="button">＋ Agregar Enlace</button>
+					</div>
+					<ul class="link-list" id="linkList"></ul>
+					<p class="empty-state" id="emptyState">Todavía no tienes enlaces. Agrega el primero arriba.</p>
+				</section>
+
+				<section class="panel-card">
+					<div class="panel-heading">
+						<div>
+							<h2>Personalización</h2>
+							<p>Elige la atmósfera de tu página pública.</p>
+						</div>
+					</div>
+					<div class="theme-grid">
+						<div class="field"><label for="backgroundTheme">Fondo</label><select id="backgroundTheme"><option value="neus-dark">Neus Dark</option><option value="cyberpunk">Cyberpunk</option><option value="glow">Glow</option><option value="minimal">Minimal</option></select></div>
+						<div class="field"><label for="buttonStyle">Estilo de botones</label><select id="buttonStyle"><option value="soft">Suave</option><option value="solid">Sólido</option><option value="outline">Outline</option></select></div>
+					</div>
+					<p class="status" id="saveStatus" aria-live="polite"></p>
+				</section>
+			</section>
+
+			<aside class="preview-column" aria-label="Vista previa del Bio-Link">
+				<p class="preview-label">Vista previa en vivo</p>
+				<div class="phone">
+					<div class="phone-camera" aria-hidden="true"></div>
+					<div class="phone-screen" id="phoneScreen">
+						<div class="bio-profile">
+							<div class="avatar avatar-fallback" id="previewAvatar" aria-label="Avatar">LC</div>
+							<h2 id="previewName">Tu nombre</h2>
+							<p id="previewBio">Tu biografía aparecerá aquí.</p>
+							<div class="preview-links" id="previewLinks"></div>
+							<p class="preview-brand">Created with LinkCraft</p>
+						</div>
+					</div>
+				</div>
+			</aside>
+		</main>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>

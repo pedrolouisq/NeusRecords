@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="QuickInvoice, generador rápido de facturas y recibos.">
+	<title>QuickInvoice | Generador de Facturas</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="app-shell">
+		<header class="topbar screen-only">
+			<div>
+				<p class="brand-kicker">Neus Lab / Herramienta financiera</p>
+				<h1>QuickInvoice</h1>
+				<p class="subtitle">Generador Rápido de Facturas y Recibos</p>
+			</div>
+			<div class="topbar-actions">
+				<a class="button" href="../index.html">← Volver al Portafolio</a>
+				<button class="button button-primary" id="printButton" type="button">⤓ Imprimir / Guardar PDF</button>
+			</div>
+		</header>
+
+		<main class="workspace">
+			<section class="invoice" id="invoice" aria-labelledby="invoice-title">
+				<div class="invoice-inner">
+					<div class="invoice-heading">
+						<div>
+							<p class="brand-kicker">Documento comercial</p>
+							<h2 id="invoice-title">FACTURA</h2>
+							<p>Gracias por confiar en nosotros.</p>
+						</div>
+						<div class="invoice-meta">
+							<div class="meta-field currency-control"><label for="currency">Moneda</label><select id="currency"><option value="COP">COP - Peso Colombiano ($)</option><option value="USD">USD - Dólar ($)</option><option value="EUR" selected>EUR - Euro (€)</option></select></div>
+							<div class="meta-field"><label for="invoiceNumber">Número de factura / recibo</label><input id="invoiceNumber" type="text" value="INV-0001"></div>
+							<div class="meta-field"><label for="issueDate">Fecha de emisión</label><input id="issueDate" type="date"></div>
+							<div class="meta-field currency-print" id="currencyPrint" aria-label="Moneda seleccionada">EUR (€)</div>
+						</div>
+					</div>
+
+					<div class="party-grid">
+						<section class="party" aria-labelledby="issuer-title">
+							<h3 id="issuer-title">Datos del emisor</h3>
+							<div class="party-fields">
+								<div class="field"><label for="issuerName">Nombre / Empresa</label><input id="issuerName" type="text" placeholder="Tu empresa"></div>
+								<div class="field"><label for="issuerEmail">Email</label><input id="issuerEmail" type="email" placeholder="hola@empresa.com"></div>
+								<div class="field"><label for="issuerPhone">Teléfono</label><input id="issuerPhone" type="tel" placeholder="+34 600 000 000"></div>
+							</div>
+						</section>
+						<section class="party" aria-labelledby="client-title">
+							<h3 id="client-title">Datos del cliente</h3>
+							<div class="party-fields">
+								<div class="field"><label for="clientName">Nombre / Empresa</label><input id="clientName" type="text" placeholder="Nombre del cliente"></div>
+								<div class="field"><label for="clientEmail">Email</label><input id="clientEmail" type="email" placeholder="cliente@email.com"></div>
+								<div class="field"><label for="clientAddress">Dirección</label><textarea id="clientAddress" placeholder="Calle, ciudad, código postal"></textarea></div>
+							</div>
+						</section>
+					</div>
+
+					<section class="items-section" aria-labelledby="items-title">
+						<div class="section-bar"><h3 id="items-title">Productos / Servicios</h3><button class="button add-item" id="addItemButton" type="button">＋ Agregar Item</button></div>
+						<div class="items-wrap">
+							<table class="items-table">
+								<thead><tr><th scope="col">Descripción</th><th scope="col">Cantidad</th><th scope="col">Precio Unitario</th><th scope="col">Total por Fila</th><th scope="col"><span class="sr-only">Acciones</span></th></tr></thead>
+								<tbody id="itemsBody"></tbody>
+							</table>
+						</div>
+					</section>
+
+					<div class="totals-area"><div class="totals" aria-live="polite"><div class="total-line"><span>Subtotal</span><strong id="subtotal">0,00 €</strong></div><div class="grand-total"><span>Total General</span><strong id="grandTotal">0,00 €</strong></div></div></div>
+
+					<section class="notes-area">
+						<div><h3>Notas / Métodos de pago</h3><textarea id="notes" placeholder="Añade Nº de cuenta, Nequi, PayPal, IBAN u otras instrucciones de pago."></textarea></div>
+						<div><h3>Información adicional</h3><p>El importe total se calcula automáticamente. Revisa los datos antes de imprimir o guardar el documento en PDF.</p></div>
+					</section>
+					<div class="invoice-footer"><span>QuickInvoice</span><span>Documento generado digitalmente</span></div>
+				</div>
+			</section>
+		</main>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
